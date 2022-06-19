@@ -28,3 +28,101 @@
   top: 50%;
   z-index: 1;
 }
+
+/* MOBILE FIRST -  from Mobile (320px) to Tablet Portrait (768px) */
+
+.first,
+.second,
+.third,
+.fourth,
+.fifth {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.first .colored,
+.second .colored {
+  flex: 1 1 50%;
+}
+
+.third .colored,
+.fourth .colored,
+.fifth .colored {
+  flex: 1 1 100%;
+}
+
+/* From Tablet Portrait to Tablet Landscape */
+
+@media (min-width: 768px) {
+  .fourth .colored {
+    flex: 1 0 50%;
+  }
+
+  .fifth .colored {
+    flex: 1 0 50%;
+  }
+}
+
+/* From Tablet Landscape to Medium Desktop */
+@media (min-width: 960px) {
+  .third,
+  .fourth {
+    flex-wrap: nowrap;
+  }
+
+  .third .colored {
+    flex: 1 1 0;
+  }
+
+  .fourth .colored {
+    flex: 1 1 35%;
+  }
+
+  .fourth .colored:nth-child(2) {
+    flex: 1 1 30%;
+  }
+}
+
+/* From  Medium Desktop to Large Desktop*/
+@media (min-width: 1200px) {
+  .third {
+    flex-wrap: wrap;
+  }
+
+  .third .colored {
+    flex: 1 1 50%;
+  }
+
+  .fifth {
+    justify-content: center;
+  }
+
+  .fifth .colored {
+    flex: 0 1 33%;
+  }
+}
+
+@media (min-width: 1800px) {
+  .first,
+  .third,
+  .fourth,
+  .fifth {
+    flex-wrap: nowrap;
+  }
+
+  .third .colored {
+    flex: 0 1 25%;
+  }
+
+  .fourth .colored {
+    flex: 1 0 25%;
+  }
+
+  .fourth .colored:last-child {
+    flex: 1 0 50%;
+  }
+
+  .fifth .colored {
+    flex: 1 1 0;
+  }
+}
